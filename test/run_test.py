@@ -18,7 +18,7 @@ def test_meaning():
     g = rdflib.Graph()
     g.parse("build/output.ttl")
 
-    if len(list(g.triples((None, None, None)))) == 0:
+    # some not very elaborate test
         error_status = True
 
     return error_status
@@ -27,11 +27,11 @@ def main():
     syntax_error = test_syntax()
 
     if syntax_error:
-        raise ImportError()
+        raise ImportError("The syntax of the generated files is not ok.")
 
     meaning_error = test_meaning()
     if meaning_error:
-        raise ValueError()
+        raise ValueError("A requirement regarding the content of the output files is not met.")
     
     print(syntax_error, meaning_error)
 
