@@ -26,9 +26,12 @@ def test_meaning():
 def main():
     syntax_error = test_syntax()
 
-    meaning_error = None
-    if not syntax_error:
-        meaning_error = test_meaning()
+    if syntax_error:
+        raise ImportError()
+
+    meaning_error = test_meaning()
+    if meaning_error:
+        raise ValueError()
     
     print(syntax_error, meaning_error)
 

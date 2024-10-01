@@ -37,3 +37,6 @@ jobs:
     - name: Compile output files
       run: |
         python src/main.py
+    - name: Test output files in typical scenarios
+      run: |
+        python test/run_test.py
