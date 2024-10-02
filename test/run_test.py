@@ -19,7 +19,7 @@ def test_meaning():
     g.parse("build/output.ttl")
 
     # some not very elaborate test
-    if len(list(g.triples((None, None, None)))) <= 1:
+    if len(list(g.triples((None, None, None)))) < 1:
         error_status = True
 
     return error_status

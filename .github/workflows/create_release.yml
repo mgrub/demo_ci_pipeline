@@ -12,8 +12,11 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: ./.github/workflows/build_and_test
-    - uses: ncipollo/release-action@v1
-      with:
-        artifacts: "build/*.ttl"
-        bodyFile: "build/release_note.md"
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/prepare_env
+      - uses: ./.github/workflows/build
+      - uses: ./.github/workflows/test
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/*.ttl"
+          bodyFile: "build/release_note.md"
