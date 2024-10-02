@@ -1,17 +1,9 @@
-name: Compile package and test it
+name: prepare env action
+description: prepare python environment
 
-on:
-  workflow_call:
-
-permissions:
-  contents: read
-
-jobs:
-  prepare_env:
-
-    runs-on: ubuntu-latest
-
-    steps:
+runs:
+  using: composite
+  steps:
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:

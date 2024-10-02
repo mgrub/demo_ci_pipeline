@@ -17,6 +17,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: ./.github/workflows/prepare_env
-    - uses: ./.github/workflows/build
-    - uses: ./.github/workflows/test
+    - uses: ./.github/actions/prepare_env
+    - uses: ./.github/actions/build
+    - uses: ./.github/actions/test
