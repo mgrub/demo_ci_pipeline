@@ -1,0 +1,19 @@
+name: Create release
+
+on: 
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+
+  create_release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: ./.github/workflows/build_and_test
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "build/*.ttl"
+        bodyFile: "build/release_note.md"
